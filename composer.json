@@ -1,0 +1,24 @@
+{
+    "name": "jaeger/querylist-coroutine",
+    "description": "QueryList Plugin: 协程插件",
+    "require": {
+        "PHP":">=7.0",
+        "ext-swoole": ">=4.5",
+        "tightenco/collect": ">5.0"
+    },
+    "require-dev": {
+        "jaeger/querylist": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "QL\\Ext\\": ""
+        }
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mfei",
+            "email": "mfei58@qq.com"
+        }
+    ]
+}
