@@ -1,5 +1,5 @@
 {
-    "name": "jaeger/querylist-coroutine",
+    "name": "mingfei/querylist-coroutine",
     "description": "QueryList Plugin: 协程插件",
     "require": {
         "PHP":">=7.0",
