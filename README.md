@@ -3,7 +3,7 @@ QueryList Plugin: Coroutine
 
 ## Installation
 ```
-composer require jaeger/querylist-coroutine
+composer require mingfei/querylist-coroutine
 ```
 
 ## API
@@ -43,7 +43,7 @@ $range = "li .row";
 - Use Coroutine
 
 ```php
-$coroutine = $ql->range($range)->rule($rule)->coroutine();
+$coroutine = $ql->range($range)->rules($rule)->coroutine();
 $coroutine->add("https://packagist.org/explore/popular");
 $data = $coroutine->wait();
 print_r($data->all());
@@ -52,7 +52,7 @@ print_r($data->all());
 - Use Coroutine with success callback
 
 ```php
-$coroutine = $ql->range($range)->rule($rule)->coroutine();
+$coroutine = $ql->range($range)->rules($rule)->coroutine();
 $coroutine->add("https://packagist.org/explore/popular");
 $coroutine->success(function($item){
     $item["star"]  = preg_replace('/\D/s', '', $item["star"] );
@@ -61,19 +61,6 @@ $coroutine->success(function($item){
 $data = $coroutine->wait();
 print_r($data->all());
 ```
-
-- Use Coroutine with size
-
-```php
-$coroutine = $ql->range($range)->rule($rule)->coroutine(1000);
-$range = range(1,10000);
-foreach($range as $i){
-    $coroutine->add("https://packagist.org/explore/popular?page=".$i);
-}
-$data = $coroutine->wait();
-print_r($data->all());
-```
-
 Out:
 
 ```
@@ -98,6 +85,26 @@ Array
         )
 	...
 )
+
+```
+
+- Use Coroutine with size
+
+```php
+$coroutine = $ql->range($range)->rules($rule)->coroutine(1000);
+$range = range(1,10000);
+foreach($range as $i){
+    $coroutine->add("https://packagist.org/explore/popular?page=".$i);
+}
+$data = $coroutine->wait();
+print_r($data->all());
+//爬取速度受packagist.org并发限制，这里大约需要等几分钟
+```
+
+Out:
+
+```
+use 424.99214887619s
 
 ```
 

@@ -52,7 +52,7 @@ class Coroutine implements PluginContract
         $wg->add(count($this->options));
         while ($option = array_shift($this->options)) {
             $channel->push(true);
-            go(function () use ($option, $channel,$method, $wg, &$result, &$throwables) {
+            go(function () use ($option, $channel,$method, $wg, &$result) {
                 try {
                     $option = Arr::wrap($option);
                     [$url, $data] = count($option) === 1 ? [$option[0], []] : $option;

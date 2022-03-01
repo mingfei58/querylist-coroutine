@@ -4,9 +4,6 @@
     "require": {
         "PHP":">=7.0",
         "ext-swoole": ">=4.5",
-        "tightenco/collect": ">5.0"
-    },
-    "require-dev": {
         "jaeger/querylist": "dev-master"
     },
     "autoload": {
@@ -17,7 +14,7 @@
     "license": "MIT",
     "authors": [
         {
-            "name": "Mfei",
+            "name": "Mingfei Qiao",
             "email": "mfei58@qq.com"
         }
     ]
